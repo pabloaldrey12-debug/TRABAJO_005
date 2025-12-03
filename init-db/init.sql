@@ -23,3 +23,22 @@ INSERT INTO cursos (nombre, descripcion, duracion_horas) VALUES
     ('PostgreSQL Mastery', 'Domina las bases de datos relacionales', 35),
     ('Docker for Developers', 'Containerización profesional de aplicaciones', 30)
 ON CONFLICT (nombre) DO NOTHING;
+
+-- Tabla de usuarios de acceso interno
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Usuario administrador INICIAL (contraseña: admin123)
+INSERT INTO users (username, email, password_hash)
+VALUES(
+    'admin',
+    'pabloaldrey12@gmailcom',
+    '$2y$10$sw2i7.AJgFoYC/rT81WVdOhxrCnxIgEBJ3gxfsgf4rvyL8aOFdGu'      
+    )
+ON CONFLICT (username) DO NOTHING;
+-- La contraseña 'admin123' ha sido hasheada usando password_hash en PHP

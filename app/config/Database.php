@@ -8,8 +8,8 @@ class Database {
     private $host = 'db';  // Nombre del servicio en docker-compose
     private $db = 'formularios_db';
     private $user = 'admin';
-    private $password = '123456789';
-    private $port = '5432';
+    private $password = 'admin123';
+    private $port = '5433 ';
     
     private $pdo;
 
