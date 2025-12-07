@@ -5,13 +5,16 @@
  */
 
 class Database {
+    // Datos de docker-compose .yml y SQL
     private $host = 'db';  // Nombre del servicio en docker-compose
-    private $db = 'formularios_db';
-    private $user = 'admin';
-    private $password = 'admin123';
-    private $port = '5433 ';
-    
-    private $pdo;
+    private $db = 'formularios_db'; // nombre de la base de datos de init.sql
+    private $user = 'admin'; // Usuario de la base de datos
+    private $password = 'admin123'; // Contraseña de la base de datos POSTGRES-PASSWORD
+    private $port = '5433 '; // Puerto por defecto de PostgreSQL
+    private ?pdo $pdo = null; // Conexión PDO por defecto nulo
+
+    // Constructor: establece la conexión
+    // Devuelve por conexión PDO
 
     // Constructor: establece la conexión
     public function __construct() {
@@ -67,4 +70,9 @@ class Database {
         return $stmt->fetchAll();
     }
 }
+
+// Nuevos usuarios en BBDD
+
+
+
 ?>
