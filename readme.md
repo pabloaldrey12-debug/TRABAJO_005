@@ -1,9 +1,3 @@
-Montar un entorno de desarrollo con **Docker Compose** editado de Visual Studio Code.
-- Un contenedor con **Apache + PHP 8.2**. 
-- Un contenedor con **PostgreSQL 16**. 
-- Un formulario en **PHP** que envíe datos y los guarde en una tabla de PostgreSQL usando **PDO**.
-
-
 CREACIÓN DE PROYECTO.
 DOCKER-COMPOSE.YML
 APP /
@@ -17,14 +11,32 @@ init-db/init.sql
 // BD  = fomulario_db
 // User = admin
 // Password = 123456789
-
 //_Modificaciones y revisión en Database.php
-
 // Modificacione en fichreo index, exportando a un csss los estilos del documento y creando tambien una carpeta para guardarlos y enlazarlos.
-
 // Revisamos api.php
-
 // En TRABAJO_005 creamos carpeta config
-
 // Revisamos config/apache.conf
 // Comprobación fichero init.sql con las tablas a crear en la bd
+
+
+CREACIÓN DE PROJECTO
+
+docker-compose.yml
+
+app/ index.php api.php css/style.css config/Database.php
+
+config/apache.conf
+
+init-db/init.sql
+
+// Modificaciones en el yml con nueva bd y usuario y passw. // BD = formulario_db // User = admin // Password = 123456789
+
+// Modificaciones y revision en Database.php
+
+// Modificaciones en el fichero index, exportando a un css los estilos del documento y creando tambien una carpeta para guardalos y enlazarlos
+
+// Revisamos api.php // Revisamos config/apache.conf // Comprobación fichero init.sql con las tablas a crear en la bd
+
+// Arrancamos el Docker Desktop // Al arrancar docker, debemos docker compose up -d // La diferencia entre docker-compose up -d y docker compose up -d radica principalmente en la versión y el comando utilizado, no en la funcionalidad. // Indicamos docker compose ps , para comprobar que inició correctamente, tanto php como postgres // Accedemos a http://localhost:8080 // Insertamos datos , todo ok
+
+// Ejecutamos database, extension // 127.0.0.1 - servidor // admin -- user // 123456789 -- password // formulario_db -- base de datos
